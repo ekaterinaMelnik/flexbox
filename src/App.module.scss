@@ -1,3 +1,48 @@
 .container {
-    display: flex;
+  display: flex;
+  flex-direction: row; //column
+  flex-wrap: wrap;
+  justify-content: space-between; // flex-start, flex-end, space-around, center - выравнивание по горизонтале
+  align-items: center; // flex-start, flex-end, stretch - выравнивание по вертикале
+  height: 400px;
+  background-color: beige;
+}
+
+.block1 {
+  //flex: 2 1 300px; - flex-grow, flex-shrink и flex-basis
+  flex-basis: 300px; // - начальная ширина/высота
+  flex-grow: 1; // - соотношение по ширине с другими при увеличении
+  flex-shrink: 0; //  соотношение по ширине с другими при уменьшении
+  align-self: flex-end; // - собственное выравнивание по вертикали
+  background-color: aquamarine;
+}
+
+.block2 {
+  flex-basis: 100px;
+  flex-grow: 10;
+  flex-shrink: 1;
+  background-color: coral;
+}
+
+.block3 {
+  flex-basis: 200px;
+  flex-grow: 3;
+  flex-shrink: 1;
+  background-color: dodgerblue;
+}
+
+.tabContainer {
+  display: flex;
+  background-color: antiquewhite;
+}
+
+.header {
+
+}
+
+.subheader {
+}
+
+.info {
+  margin-left: auto;
 }
