@@ -1,0 +1,58 @@
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 50px;
+}
+
+.flexNav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  border: 1px solid black;
+  list-style: none;
+}
+
+.flexNav li {
+  flex: 3;
+}
+
+.flexNav .social {
+  flex: 1;
+}
+
+.flexNav a {
+  color: white;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-decoration: none;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px 0px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  transition: all 0.5ms;
+}
+
+.flexNav a:hover {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+@media all and (max-width: 1000px) {
+  .flexNav ul {
+    flex-wrap: wrap;
+  }
+
+  .flexNav li {
+    flex: 1 1 50%;
+  }
+
+  .flexNav .social {
+    flex: 1 1 25%;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .flexNav li {
+    flex-basis: 100%;
+  }
+}
