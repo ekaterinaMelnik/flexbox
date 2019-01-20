@@ -1,31 +1,57 @@
 import * as React from 'react';
 import * as styles from './Nav.module.scss';
+import * as classNames from 'classnames/bind';
+import Link from '../Common/Link/Link';
 
-const Nav = () => (
-  <div className={styles.wrapper}>
-    <nav className={styles.flexNav}>
-      <ul>
-        <li><a href="#">Item 1</a></li>
-        <li><a href="#">Item 2</a></li>
-        <li><a href="#">Item 3</a></li>
-        <li><a href="#">Item 4</a></li>
-        <li><a href="#">Item 5</a></li>
-        <li><a href="#">Item 6</a></li>
-        <li className={styles.social}>
-          <a href="#"><i className="fa fa-twitter"/></a>
-        </li>
-        <li className={styles.social}>
-          <a href="#"><i className="fa fa-facebook"/></a>
-        </li>
-        <li className={styles.social}>
-          <a href="#"><i className="fa fa-instagram"/></a>
-        </li>
-        <li className={styles.social}>
-          <a href="#"><i className="fa fa-github"/></a>
-        </li>
-      </ul>
-    </nav>
-  </div>
-);
+const cx = classNames.bind(styles);
+
+class Nav extends React.Component {
+  state = {
+    isOpen: false
+  };
+
+  toggleMenu = () => {
+    this.setState((state => ({
+      isOpen: !state.isOpen
+    })));
+  };
+
+  render() {
+    const { isOpen } = this.state;
+
+    const flexNavState = cx('flexNavUl', {
+      flexNavUlOpen: isOpen,
+      flexNavUlClose: !isOpen
+    });
+
+    return (
+      <nav className={styles.flexNav}>
+        <div className={styles.toggleNav} onClick={this.toggleMenu}>
+          <Link href='#' text={'Menu'}/>
+        </div>
+        <ul className={flexNavState}>
+          <li><Link href='#' text={'Item 1'}/></li>
+          <li><Link href='#' text={'Item 2'}/></li>
+          <li><Link href='#' text={'Item 3'}/></li>
+          <li><Link href='#' text={'Item 4'}/></li>
+          <li><Link href='#' text={'Item 5'}/></li>
+          <li><Link href='#' text={'Item 6'}/></li>
+          <li className={styles.social}>
+            <Link href="#"><i className="fa fa-twitter"/></Link>
+          </li>
+          <li className={styles.social}>
+            <Link href="#"><i className="fa fa-facebook"/></Link>
+          </li>
+          <li className={styles.social}>
+            <Link href="#"><i className="fa fa-instagram"/></Link>
+          </li>
+          <li className={styles.social}>
+            <Link href="#"><i className="fa fa-github"/></Link>
+          </li>
+        </ul>
+      </nav>
+    );
+  }
+}
 
 export default Nav;
